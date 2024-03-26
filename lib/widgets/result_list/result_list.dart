@@ -21,7 +21,8 @@ class ResultList extends ConsumerWidget {
 
     return ListView.separated(
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-      controller: ref.watch(resultListScrollControllerProvider),
+      controller:
+          ref.watch(resultListScrollControllerProvider).scrollController,
       itemCount: resultList.map((e) => e.directory).toSet().length,
       separatorBuilder: (context, index) => const SizedBox(height: 32),
       itemBuilder: (context, index) {

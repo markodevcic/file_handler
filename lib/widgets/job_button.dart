@@ -34,16 +34,9 @@ class JobButton extends ConsumerWidget {
                 ? () {
                     final files = onPressed();
                     if (files.isNotEmpty) {
-                      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-                        ref.read(resultListScrollControllerProvider).animateTo(
-                              ref
-                                  .read(resultListScrollControllerProvider)
-                                  .position
-                                  .maxScrollExtent,
-                              duration: const Duration(milliseconds: 200),
-                              curve: Curves.easeInOut,
-                            );
-                      });
+                      ref
+                          .read(resultListScrollControllerProvider)
+                          .scrollToBottom();
                     }
                   }
                 : null,
